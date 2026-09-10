@@ -3,3 +3,4 @@ audd
 google-genai
 uvicorn
 python-dotenv
+python-multipart
