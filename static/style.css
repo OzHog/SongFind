@@ -1,0 +1,494 @@
+/* =========================
+   בסיס
+   ========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    margin: 0;
+
+    min-height: 100vh;
+
+    font-family: Arial, sans-serif;
+
+    background: #08090f;
+
+    color: white;
+}
+
+
+/* =========================
+   Container
+   ========================= */
+
+.container {
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 24px;
+}
+
+
+/* =========================
+   החלון המרכזי
+   ========================= */
+
+.app {
+    width: min(900px, 100%);
+
+    min-height: 680px;
+
+    padding: 40px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #181a2a,
+            #0d0e15
+        );
+
+    box-shadow:
+        0 25px 80px rgba(0, 0, 0, 0.5);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   אפקט רקע
+   ========================= */
+
+.app::before {
+    content: "";
+
+    position: absolute;
+
+    width: 420px;
+    height: 420px;
+
+    border-radius: 50%;
+
+    background: #604cff;
+
+    filter: blur(130px);
+
+    opacity: 0.18;
+
+    top: -180px;
+    left: -120px;
+}
+
+
+/* =========================
+   Header
+   ========================= */
+
+header {
+    position: relative;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+
+.logo {
+    font-size: 24px;
+
+    font-weight: 800;
+}
+
+
+.logo span {
+    color: #7566ff;
+}
+
+
+.tag {
+    color: #999bad;
+
+    border: 1px solid #292b3a;
+
+    border-radius: 30px;
+
+    padding: 8px 13px;
+
+    font-size: 12px;
+}
+
+
+/* =========================
+   דף הבית
+   ========================= */
+
+.landing {
+    position: relative;
+
+    min-height: 580px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+}
+
+
+h1 {
+    font-size: clamp(44px, 8vw, 78px);
+
+    line-height: 0.95;
+
+    letter-spacing: -4px;
+
+    margin: 0 0 20px;
+}
+
+
+.subtitle {
+    color: #a8a9ba;
+
+    font-size: 18px;
+
+    line-height: 1.7;
+
+    margin: 0 0 40px;
+}
+
+
+/* =========================
+   כפתור הקלטה
+   ========================= */
+
+.record-button {
+    width: 190px;
+    height: 190px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            145deg,
+            #796aff,
+            #4936d7
+        );
+
+    box-shadow:
+        0 0 0 14px rgba(108, 91, 255, 0.08),
+        0 20px 60px rgba(91, 69, 255, 0.35);
+
+    font-size: 21px;
+
+    font-weight: bold;
+
+    transition: 0.2s;
+}
+
+
+.record-button:hover {
+    transform: scale(1.04);
+}
+
+
+.record-button:active {
+    transform: scale(0.97);
+}
+
+
+.microphone {
+    display: block;
+
+    font-size: 48px;
+
+    margin-bottom: 10px;
+}
+
+
+.status {
+    height: 25px;
+
+    margin-top: 28px;
+
+    color: #85879a;
+}
+
+
+/* =========================
+   מצב הקלטה
+   ========================= */
+
+.listening .record-button {
+    animation: pulse 1.1s infinite;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ff6078,
+            #d52f50
+        );
+}
+
+
+@keyframes pulse {
+
+    50% {
+
+        box-shadow:
+            0 0 0 35px rgba(255, 80, 110, 0.03),
+            0 20px 70px rgba(255, 60, 90, 0.4);
+
+    }
+
+}
+
+
+/* =========================
+   Utilities
+   ========================= */
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =========================
+   דף תוצאה
+   ========================= */
+
+.result {
+    position: relative;
+
+    max-width: 700px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================
+   כפתור חזרה
+   ========================= */
+
+.back-button {
+    border: none;
+
+    background: none;
+
+    color: #999bad;
+
+    cursor: pointer;
+
+    margin-bottom: 28px;
+
+    font-size: 15px;
+}
+
+
+.back-button:hover {
+    color: white;
+}
+
+
+/* =========================
+   פרטי השיר
+   ========================= */
+
+.song {
+    display: grid;
+
+    grid-template-columns: 230px 1fr;
+
+    gap: 30px;
+
+    align-items: center;
+}
+
+
+/* =========================
+   תמונת אלבום
+   ========================= */
+
+.album-cover {
+    width: 230px;
+    height: 230px;
+
+    border-radius: 24px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #796aff,
+            #151621
+        );
+
+    font-size: 75px;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================
+   מידע על השיר
+   ========================= */
+
+.success-label {
+    color: #796aff;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    font-weight: bold;
+}
+
+
+.song-title {
+    font-size: clamp(36px, 6vw, 58px);
+
+    font-weight: 800;
+
+    line-height: 1;
+
+    margin: 10px 0;
+
+    letter-spacing: -2px;
+}
+
+
+.artist {
+    font-size: 22px;
+
+    color: #b0b1c1;
+}
+
+
+/* =========================
+   תוכן נוסף
+   ========================= */
+
+.extra-content {
+    margin-top: 35px;
+
+    padding: 26px;
+
+    border: 1px solid #292b3b;
+
+    border-radius: 22px;
+
+    background: rgba(255, 255, 255, 0.02);
+}
+
+
+.extra-content h3 {
+    margin: 0 0 10px;
+}
+
+
+.extra-content p {
+    margin: 0;
+
+    color: #9496a9;
+
+    line-height: 1.7;
+}
+
+
+/* =========================
+   כפתור שיר נוסף
+   ========================= */
+
+.again-button {
+    width: 100%;
+
+    margin-top: 18px;
+
+    padding: 16px;
+
+    border-radius: 14px;
+
+    border: 1px solid #35374a;
+
+    background: #191a27;
+
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+
+.again-button:hover {
+    background: #222336;
+}
+
+
+/* =========================
+   Mobile
+   ========================= */
+
+@media (max-width: 650px) {
+
+    .app {
+        padding: 24px;
+
+        min-height: 650px;
+    }
+
+
+    .song {
+        grid-template-columns: 1fr;
+
+        text-align: center;
+    }
+
+
+    .album-cover {
+        width: 190px;
+        height: 190px;
+
+        margin: auto;
+    }
+
+
+    .extra-content {
+        text-align: right;
+    }
+
+
+    .record-button {
+        width: 165px;
+        height: 165px;
+    }
+
+}
