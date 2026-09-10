@@ -1,0 +1,7 @@
+fastapi
+audd
+genai
+google
+sys
+uvicorn
+python-dotenv
