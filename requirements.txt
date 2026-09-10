@@ -1,7 +1,6 @@
 fastapi
 audd
-genai
-google
+google-genai
 sys
 uvicorn
 python-dotenv
