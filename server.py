@@ -21,7 +21,7 @@ GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://songfind.onrender.com/"],  # בפרודקשן מומלץ להחליף לכתובת האתר הספציפית שלך
+    allow_origins=["https://songfind.onrender.com"],  # בפרודקשן מומלץ להחליף לכתובת האתר הספציפית שלך
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
