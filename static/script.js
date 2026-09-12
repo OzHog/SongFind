@@ -23,6 +23,12 @@ const backButton =
 const againButton =
     document.getElementById("againButton");
 
+const buttonIcon =
+    document.getElementById("iconButton");
+
+const spinner =
+    document.getElementById("loading");
+
 
 // ========================================
 // לחיצה על כפתור ההקלטה
@@ -33,7 +39,9 @@ recordButton.addEventListener(
     startRecording
 );
 
-const server_url = "https://songfind.onrender.com"
+// const server_url = "https://songfind.onrender.com"
+const server_url = "192.168.68.50:8000"
+
 let mediaRecorder;
 let audioChunks = [];
 let server_response;
@@ -57,7 +65,6 @@ async function startRecording() {
                 channelCount: 1,
                 sampleRate: 48000,
                 sampleSize: 16,
-
                 echoCancellation: false,
                 noiseSuppression: false,
                 autoGainControl: false
@@ -129,7 +136,9 @@ async function startRecording() {
                 status.textContent = "ההקלטה הסתיימה";
                 landing.classList.remove("listening");
                 buttonText.textContent = "הקלט";
-                recordButton.disabled = false;
+                spinner.classList.remove("hidden");
+                buttonIcon.classList.add("hidden");
+                buttonText.classList.add("hidden");
             }
 
         }, 11000);
@@ -137,7 +146,7 @@ async function startRecording() {
         // 3. טיפול במצב שבו המשתמש סירב למיקרופון
         console.error("גישה למיקרופון נדחתה או נכשלה:", error);
         status.textContent = "יש לאשר גישה למיקרופון כדי להקליט";
-        recordButton.disabled = false;
+        // recordButton.disabled = false;
     }
 }
 
@@ -160,6 +169,7 @@ function create_audioPlayer(audioBlob) {
 }
 
 async function send_audio(audioBlob, extension) {
+
     const formData = new FormData();
     formData.append("file", audioBlob, `recording.${extension}`);
     try {
@@ -178,6 +188,13 @@ async function send_audio(audioBlob, extension) {
         const data = await response.json();
         console.log("תשובת השרת:", data);
         server_response = data;
+
+        spinnerclassList.add("hidden");
+
+        buttonIcon.classList.remove("hidden");
+
+        buttonText.classList.remove("hidden");
+
         showResult();
 
         status.textContent = "הקובץ נשלח ונקלט בהצלחה בשרת!";
@@ -242,6 +259,7 @@ function showLanding() {
 
     landing.classList.remove("hidden");
 
+    recordButton.disabled = false;
 
     status.textContent =
         "לחץ על הכפתור כדי להתחיל";

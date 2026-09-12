@@ -4,10 +4,7 @@
 <head>
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>SongFind</title>
 
@@ -18,159 +15,144 @@
 
 <body>
 
-<div class="container">
+    <div class="container">
 
-    <main class="app">
+        <main class="app">
 
-        <!-- =========================
+            <!-- =========================
              HEADER
              ========================= -->
 
-        <header>
+            <header>
 
-            <div class="logo">
-                Song<span>Find</span>
-            </div>
-
-            <div class="tag">
-                MUSIC RECOGNITION
-            </div>
-
-        </header>
-
-
-        <!-- =========================
-             דף הבית
-             ========================= -->
-
-        <section
-            id="landing"
-            class="landing"
-        >
-
-            <h1>
-                איזה שיר<br>
-                מתנגן?
-            </h1>
-
-
-            <p class="subtitle">
-                לחץ על הכפתור, תן לנו להאזין לכמה שניות,
-                <br>
-                וננסה לזהות את השיר והאומן.
-            </p>
-
-
-            <button
-                id="recordButton"
-                class="record-button"
-            >
-
-                <span class="microphone">
-                    🎙️
-                </span>
-
-                <span id="buttonText">
-                    הקלט
-                </span>
-
-            </button>
-
-
-            <div
-                id="status"
-                class="status"
-            >
-                לחץ על הכפתור כדי להתחיל
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             דף תוצאה
-             ========================= -->
-
-        <section
-            id="result"
-            class="result hidden"
-        >
-
-            <button
-                id="backButton"
-                class="back-button"
-            >
-                ← חזרה לחיפוש
-            </button>
-
-
-            <div class="song">
-
-                <!-- תמונת אלבום -->
-
-                <div class="album-cover">
-                    ♪
+                <div class="logo">
+                    Song<span>Find</span>
                 </div>
 
-
-                <!-- מידע על השיר -->
-
-                <div>
-
-                    <div id="success-label" class="success-label">
-                        זוהה בהצלחה
-                    </div>
-
-                    <div id="song-title" class="song-title">
-                        unKnown
-                    </div>
-
-                    <div id="artist" class="artist">
-                        unKnown
-                    </div>
-
+                <div class="tag">
+                    MUSIC RECOGNITION
                 </div>
 
-            </div>
+            </header>
 
 
             <!-- =========================
+             דף הבית
+             ========================= -->
+
+            <section id="landing" class="landing">
+
+                <h1>
+                    איזה שיר<br>
+                    מתנגן?
+                </h1>
+
+
+                <p class="subtitle">
+                    לחץ על הכפתור, תן לי להאזין לכמה שניות,
+                    <br>
+                    ואנסה לזהות את השיר והאומן.
+                </p>
+
+
+                <button id="recordButton" class="record-button">
+
+                    <span id="iconButton"class="microphone">
+                        🎙️
+                    </span>
+
+                    <span id="buttonText">
+                        הקלט
+                    </span>
+
+                    <span id="loading" class="spinner hidden"></span>
+
+                </button>
+
+
+                <div id="status" class="status">
+                    לחץ על הכפתור כדי להתחיל
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+             דף תוצאה
+             ========================= -->
+
+            <section id="result" class="result hidden">
+
+                <button id="backButton" class="back-button">
+                    ← חזרה לחיפוש
+                </button>
+
+
+                <div class="song">
+
+                    <!-- תמונת אלבום -->
+
+                    <div class="album-cover">
+                        ♪
+                    </div>
+
+
+                    <!-- מידע על השיר -->
+
+                    <div>
+
+                        <div id="success-label" class="success-label">
+                            זוהה בהצלחה
+                        </div>
+
+                        <div id="song-title" class="song-title">
+                            unKnown
+                        </div>
+
+                        <div id="artist" class="artist">
+                            unKnown
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =========================
                  אזור תוכן נוסף
                  ========================= -->
 
-            <div class="extra-content">
+                <div class="extra-content">
 
-                <h3>
-                    משהו מעניין לדעת
-                </h3>
+                    <h3>
+                        משהו מעניין לדעת
+                    </h3>
 
-                <p id="to-know">
-                    כאן תוכל להציג בהמשך כל מידע שתרצה —
-                    קישור לשיר, מילים, ז'אנר, אלבום,
-                    מידע על האומן, המלצות, תרגום ועוד.
-                </p>
+                    <p id="to-know">
+                        כאן תוכל להציג בהמשך כל מידע שתרצה —
+                        קישור לשיר, מילים, ז'אנר, אלבום,
+                        מידע על האומן, המלצות, תרגום ועוד.
+                    </p>
 
-            </div>
-
-
-            <!-- זיהוי שיר נוסף -->
-
-            <button
-                id="againButton"
-                class="again-button"
-            >
-                🎙️ לזהות שיר נוסף
-            </button>
-
-        </section>
-
-    </main>
-
-</div>
+                </div>
 
 
-<!-- חיבור לקובץ JavaScript -->
-<script src="/static/script.js"></script>
+                <!-- זיהוי שיר נוסף -->
+
+                <button id="againButton" class="again-button">
+                    🎙️ לזהות שיר נוסף
+                </button>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- חיבור לקובץ JavaScript -->
+    <script src="/static/script.js"></script>
 
 </body>
+
 </html>
