@@ -189,7 +189,7 @@ async function send_audio(audioBlob, extension) {
         console.log("תשובת השרת:", data);
         server_response = data;
 
-        spinnerclassList.add("hidden");
+        spinner.classList.add("hidden");
 
         buttonIcon.classList.remove("hidden");
 
