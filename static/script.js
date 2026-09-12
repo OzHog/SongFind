@@ -39,8 +39,8 @@ recordButton.addEventListener(
     startRecording
 );
 
-// const server_url = "https://songfind.onrender.com"
-const server_url = "192.168.68.50:8000"
+const server_url = "https://songfind.onrender.com"
+// const server_url = "192.168.68.50:8000"
 
 let mediaRecorder;
 let audioChunks = [];
